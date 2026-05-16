@@ -31,7 +31,7 @@ a:hover {
   background:
   /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
   linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    url('../images/ren2.jpg') center/cover no-repeat fixed;
+    url('../Images/ren2.jpg') center/cover no-repeat fixed;
   /*filter: grayscale(100%);*/
   z-index: -1;
 }
@@ -51,7 +51,7 @@ a:hover {
   background:
   /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
   linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    url('../images/roman1.jpg') center/cover no-repeat fixed;
+    url('../Images/roman1.jpg') center/cover no-repeat fixed;
   /*filter: grayscale(100%);*/
   z-index: -1;
 }
@@ -183,7 +183,7 @@ margin-top: 0;
   background:
   /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
   linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    url('../images/train.jpg') center/cover no-repeat fixed;
+    url('../Images/train.jpg') center/cover no-repeat fixed;
   /*filter: grayscale(100%);*/
   z-index: -1;
 }
