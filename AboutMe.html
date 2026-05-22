@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Andrew's Portfolio (Welcome)</title>
         <link rel="stylesheet" href="Static/CSS/Styles.css">
     </head>
-    <body class="about-me">
+    <body class="about-me" data-page="aboutme">
         <nav>
-            <ul class="nav-links">
+            <div class="nav-header">
+                <div class="nav-title">
+                    Menu
+                </div>
+                <button class="nav-toggle" id="navToggle">
+                    ☰
+                </button>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html"><strong>Welcome</strong></a></li>
                 <li><a href="BikePredictions.html"><strong>ML Predictions</strong></a></li>
-                <li><a href=""><strong>Salesforce RevOps</strong></a></li>
-                <li><a href=""><strong>AI Powered Marketing</strong></a></li>
-                <li><a href=""><strong>How It Works</strong></a></li>
+                <li><a href="SalesForce.html"><strong>Salesforce RevOps</strong></a></li>
+                <li><a href="AIPowered.html"><strong>AI Powered Marketing</strong></a></li>
+                <li><a href="HowItWorks.html"><strong>How It Works</strong></a></li>
                 <li><a href="AboutMe.html"><strong>About Me</strong></a></li>
             </ul>
         </nav>
-        <div class="about-layout">
-            <div class="about-text-box">
-                <h1 class="about-header"><strong>My Story- Andrew Cameron</strong></h1>
-                <p>As a child, two things fascinated me: understanding complex systems and creating art. 
-                    Those interests led me to major in Economics at Furman University. In my free time I took a leadership position
-                    at a student organization where I designed advertising for over 50 speaking events. I continued that path at Drexel University, 
-                    completing a Master of Science in Business Analytics and taking courses in statistics, 
-                    mathematics, and computer science. Through a series of project‑based analytics courses, 
-                    I discovered how much I enjoy coding, building things, and creative problem-solving.<br><br>
-                    I started my career at Crane Payment Innovations where I led marketing experiments and analyzed 
-                    ad‑screen performance across a network of 40,000 vending machines. As I gained expertise with 
-                    transaction‑level Internet of Things data, my work expanded to support marketing, sales, product management, finance, and 
-                    customer service. I build reporting, automated processes, and deliver insights with the latest technologies. 
-                    Not wanting to be limited by out‑of‑the‑box dashboards, I learned web development to gain more control over 
-                    how data tools look and feel.<br><br>
-                    With this website I plan to implement modern analytics engineering practices, 
-                    including AI agents and data pipelines, to demonstrate what’s possible when creativity and 
-                    technical skill come together.
-                    <!--<span style="font-size: 16px;">-Andrew Cameron</span>-->
-                    <!--<span style="font-size: 16px;">acameron2438@gmail.com</span>-->
-                </p>
-            </div>
-            <div class="about-image">
-                <img src="Static\Images\about.jpg"/>
+        <div class="page-content">
+            <div class="about-layout">
+                <div class="about-text-box">
+                    <h1 class="about-header"><strong>My Story- Andrew Cameron</strong></h1>
+                    <p>As a child, two things fascinated me: understanding complex systems and creating art. 
+                        Those interests led me to major in Economics at Furman University. In my free time I took a leadership position
+                        at a student organization where I designed advertising for over 50 speaking events. I continued that path at Drexel University, 
+                        completing a Master of Science in Business Analytics and taking courses in statistics, 
+                        mathematics, and computer science. Through a series of project‑based analytics courses, 
+                        I discovered how much I enjoy coding, building things, and creative problem-solving.<br><br>
+                        I started my career at Crane Payment Innovations where I led marketing experiments and analyzed 
+                        ad‑screen performance across a network of 40,000 vending machines. As I gained expertise with 
+                        transaction‑level Internet of Things data, my work expanded to support marketing, sales, product management, finance, and 
+                        customer service. I build reporting, automated processes, and deliver insights with the latest technologies. 
+                        Not wanting to be limited by out‑of‑the‑box dashboards, I learned web development to gain more control over 
+                        how data tools look and feel.<br><br>
+                        With this website I plan to implement modern analytics engineering practices, 
+                        including AI agents and data pipelines, to demonstrate what’s possible when creativity and 
+                        technical skill come together.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="Static\Images\about.jpg"/>
+                </div>
             </div>
         </div>
+        <script src="Static/JS/toc.js"></script>
     </body>
 </html>

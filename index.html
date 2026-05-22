@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Andrew's Portfolio (Welcome)</title>
         <link rel="stylesheet" href="Static/CSS/Styles.css">
     </head>
-    <body class="welcome-page">
+    <body class="welcome-page" data-page="welcome">
         <nav>
-            <ul class="nav-links">
+            <div class="nav-header">
+                <div class="nav-title">
+                    Menu
+                </div>
+                <button class="nav-toggle" id="navToggle">
+                    ☰
+                </button>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html"><strong>Welcome</strong></a></li>
                 <li><a href="BikePredictions.html"><strong>ML Predictions</strong></a></li>
-                <li><a href=""><strong>Salesforce RevOps</strong></a></li>
-                <li><a href=""><strong>AI Powered Marketing</strong></a></li>
-                <li><a href=""><strong>How It Works</strong></a></li>
+                <li><a href="SalesForce.html"><strong>Salesforce RevOps</strong></a></li>
+                <li><a href="AIPowered.html"><strong>AI Powered Marketing</strong></a></li>
+                <li><a href="HowItWorks.html"><strong>How It Works</strong></a></li>
                 <li><a href="AboutMe.html"><strong>About Me</strong></a></li>
             </ul>
         </nav>
-        <div class="welcome-text-box">
-            <h1>Welcome!</h1>
-            <p>I built this site to showcase my analytics engineering skills. Each tab shows a different project, 
-                ranging from static write‑ups to dashboards that pull live data from external sources. The How It Works
-                section explains the tools and architecture behind the site. My goal was to create an example of the 
-                internal data tools I can build to empower business teams. I focused on clean design, usability,
-                and clear communication, not just functionality. This site reflects a blend of analytics engineering, 
-                design, and user experience. My goal is not just to build functional tools, but to create ones that 
-                are intuitive, compelling, and enjoyable to use. If you’d like to 
-                connect or learn more, feel free to reach out.<br><br>
-                Andrew Cameron<br>
-                acameron2438@gmail.com<br>
-                <a href=https://github.com/acameron2438>GitHub</a>
-            </p>
+        <div class="page-content">
+            <div class="welcome-text-box">
+                <h1>Welcome!</h1>
+                <p>I built this site to showcase my analytics engineering skills. You can explore my projects, learn how the site was built and read more about me using the toolbar above. My goal was to create an example of the internal data tools I can build to empower business teams. I focused on design, user experience, and clear communication, not just functionality. If you’d like to connect or learn more, feel free to reach out.<br><br>
+                    Andrew Cameron<br>
+                    acameron2438@gmail.com<br>
+                    <a href=https://github.com/acameron2438>GitHub</a>
+                </p>
+            </div>
         </div>
+        <script src="Static/JS/toc.js"></script>
     </body>
 </html>
