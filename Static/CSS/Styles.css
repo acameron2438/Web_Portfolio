@@ -1,14 +1,21 @@
-/*-----Spacing, Typography and Images-----*/
-      /*6vh, 2.8vw*/
+/*----------Spacing, Typography and Images----------*/
+
 /*Font*/
 body {
   font-family: "Times New Roman", Times, serif;
 }
 
-/*
-body {
-  font-family: "Times New Roman", Times, serif;
+/*Color scheme*/
+:root {
+  --textpanels-color: rgba(51, 51, 51, 0.85);
+  --bgdefault-color: #0d0d0d;
+  --text-color:white;
 }
+/*Background fade in speed*/
+:root {
+  --fadein-speed: 0.25s;
+}
+
 /* desktop */
 :root {  
   --space: 40px;
@@ -105,6 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*Background Image*/
 :root{
+--bg-image: url('../Images/roman1.jpg');
 --bg-welcome: url('../Images/ren2.jpg');
 --bg-bikes: url('../Images/roman1.jpg');
 --bg-salesforce: url('../Images/ren3.jpg');
@@ -112,7 +120,15 @@ h1, h2, h3, h4, h5, h6 {
 --bg-howitworks: url('../Images/ren4.jpg');
 --bg-aboutme: url('../Images/train.jpg');
 }
-/*-----Universal Settings-----*/
+/* Per-page override */
+body[data-page="bikes"] {
+  --bg-image: var(--bg-bikes);
+}
+
+body[data-page="salesforce"] {
+  --bg-image: var(--bg-salesforce);
+}
+/*----------Universal Settings----------*/
 body {
   margin: 0;
   padding: 0;
@@ -125,8 +141,8 @@ img {
 
 /*Link Settings*/
 a {
-  color:white;   /* your chosen color */
-  text-decoration: none; /* optional: removes underline */
+  color:var(--text-color); 
+  text-decoration: none; /*removes underline */
 }
 
 a:hover {
@@ -137,8 +153,14 @@ a:hover {
   0 0 50px rgba(19, 75, 143, .75);;
 }
 
-/*-----Full Page Classes-----*/
+/*Opacity Switch*/
+body.bg-loaded::before {
+  opacity: 1;
+}
+/*----------Full Page Classes----------*/
 .welcome-page {
+  background-color: var(--bgdefault-color);
+  --bg-image: var(--bg-welcome); /*default background image*/
   z-index: 0;
   min-height: 100vh;
   padding-top: var(--space);
@@ -147,6 +169,8 @@ a:hover {
 }
 
 .bikes {
+  background-color: var(--bgdefault-color);
+  --bg-image: var(--bg-bikes); /*default background image*/
   z-index: 0;
   min-height: 100vh;
   padding-top: var(--space);
@@ -155,6 +179,8 @@ a:hover {
 }
 
 .howitworks-page {
+  background-color: var(--bgdefault-color);
+  --bg-image: var(--bg-howitworks); /*default background image*/
   z-index: 0;
   min-height: 100vh;
   padding-top: var(--space);
@@ -163,6 +189,8 @@ a:hover {
 }
 
 .salesforce-page {
+  background-color: var(--bgdefault-color);
+  --bg-image: var(--bg-salesforce); /*default background image*/
   z-index: 0;
   min-height: 100vh;
   padding-top: var(--space);
@@ -171,6 +199,8 @@ a:hover {
 }
 
 .aipowered-page {
+  background-color: var(--bgdefault-color);
+  --bg-image: var(--bg-aipowered); /*default background image*/
   z-index: 0;
   min-height: 100vh;
   padding-top: var(--space);
@@ -179,6 +209,8 @@ a:hover {
 }
 
 .about-me {
+  background-color: var(--bgdefault-color);
+  --bg-image: var(--bg-aboutme); /*default background image*/
   z-index: 0;
   min-height: 100vh;
   padding-top: var(--space);
@@ -189,7 +221,7 @@ a:hover {
 .page-content {
   display: flex;
   flex-direction: column;
-  justify-content: top;   /* centers vertically */
+  justify-content: top;  
   /*height set by javascript*/
   padding-top: var(--space);
   padding-bottom: var(--space);
@@ -208,7 +240,7 @@ a:hover {
   }
 }
 
-/*-----ToolBar Classes-----*/
+/*----------ToolBar Classes----------*/
 /*Both desktop and mobile*/
 .nav {
   width: 100%;
@@ -221,14 +253,15 @@ a:hover {
   gap: 24px;
   margin: 0;
   padding: 0;
-  background-color: rgba(51, 51, 51, 0.75);
+  background-color: var(--textpanels-color);
+  /*background-color: rgba(51, 51, 51, 0.75);*/
   backdrop-filter: blur(1px);
   width: 100%;
 }
 
 .nav-links li a {
   display: block;
-  color: white;
+  color: var(--text-color);
   text-align: center;
   padding: var(--padding) var(--padding);
   text-decoration: none;
@@ -241,7 +274,7 @@ a:hover {
   align-items: center;
   padding: 14px 2.8vw;
   display: none; /*Hidden by default (desktop)*/
-  background-color: rgba(51, 51, 51, 0.75);
+  background-color: var(--textpanels-color);
   backdrop-filter: blur(1px);
 }
 /*Menu Header*/
@@ -254,7 +287,7 @@ a:hover {
 .nav-toggle {
   background: none;
   border: none;
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -283,29 +316,28 @@ a:hover {
   }
 }
 
-/*-----Page Specific Classes-----*/
+/*----------Page Specific Classes----------*/
 
 /*Welcome Page*/
 .welcome-page::before {
+  background-color: var(--bgdefault-color);
+  opacity: 0;
+  transition: opacity var(--fadein-speed) ease-in;
   content: "";
   position: fixed;
   inset: 0;
   background:
-  /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
-  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    var(--bg-welcome) center/cover no-repeat fixed;
-  /*filter: grayscale(100%);*/
+    var(--bg-image) center/cover no-repeat fixed;
   z-index: -1;
 }
 
 .welcome-text-box {
   display: flex;
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);
   padding: var(--padding);
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   max-width: 475px;
-  /*margin: 40px 0 50px 50px; /* top, right, bottom, left */
   text-align: left;
   line-height: 1.25;
   backdrop-filter: blur(1px);
@@ -315,7 +347,6 @@ a:hover {
 @media (max-width: 980px) {
   .welcome-text-box {
     margin: var(--space) var(--space); /* mobile */
-    /*max-width: 70vw;*/
   }
 }
 
@@ -323,17 +354,17 @@ a:hover {
 margin-top: 0;
 }
 
-/*ML Predictions Page*/
+/*-----ML Predictions Page-----*/
 .bikes::before {
+  background-color: var(--bgdefault-color);;
+  opacity: 0;
+  transition: opacity var(--fadein-speed) ease-in;
   content: "";
   overflow: hidden;
   position: fixed;
   inset: 0;
   background:
-  /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
-  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    var(--bg-bikes)  center/cover no-repeat;
-  /*filter: grayscale(100%);*/
+    var(--bg-image)  center/cover no-repeat;
   z-index: -1;
 }
 
@@ -342,23 +373,19 @@ margin-top: 0;
   gap: var(--space); /* space between left and right columns */
   overflow: hidden;
   height: 100%;
-  /*max-height: 75vh;*/
   max-width: 100%;
-  /*margin: 40px 50px 100px 50px;*/
 }
 
 .bike-toc {
   width: 25%;
-  /*max-height: 75vh;*/
   display: flex;
   overflow-y: auto;
   flex-direction: column;
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);;
   padding: var(--padding);
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   max-width: 900px;
-  /*margin: 40px 50px 50px 50px; 8//* top, right, bottom, left */
   text-align: left;
   line-height: 1.25;
   backdrop-filter: blur(1px);
@@ -366,32 +393,29 @@ margin-top: 0;
 @media (max-width: 700px) {
   .bike-toc {
     display: none;
-    width: 0;        /* <-- required */
+    width: 0;        
     padding: 0;
   }
 }
-
+/*Indents subsection in table of contents*/
 .subsection {
     display: block;
-    margin-left: 20px;     /* indentation */
-    margin-top: 4px;       /* slight spacing */
+    margin-left: 20px;     
+    margin-top: 4px;       
 }
 
 .bike-content {
   scroll-padding-top: 80px;
   width: 65%;
   overflow-y: auto;
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);
   padding: var(--padding) var(--padding);
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   height:100%;
-  /*max-height: 75vh;*/
-  /*margin: 40px 50px 50px 50px; *//* top, right, bottom, left */
   text-align: left;
   backdrop-filter: blur(1px);
 }
-
 
 @media (max-width: 700px) {
   .bike-content {
@@ -399,27 +423,30 @@ margin-top: 0;
   }
 }
 
-/*AI Powered Marketing*/
+/*-----AI Powered Marketing-----*/
 .aipowered-page::before {
+  background-color: var(--bgdefault-color);;
+  opacity: 0;
+  transition: opacity var(--fadein-speed) ease-in;
   content: "";
   position: fixed;
   inset: 0;
   background:
-  /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
-  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    var(--bg-aipowered) center/cover no-repeat fixed;
-  /*filter: grayscale(100%);*/
+  /*linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),*/
+    var(--bg-image) center/cover no-repeat fixed;
   z-index: -1;
+}
+body.bg-loaded::before {
+  opacity: 1;
 }
 
 .aipowered-text-box {
   display: flex;
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);
   padding: var(--padding);
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   max-width: 475px;
-  /*margin: 40px 0 50px 50px; /* top, right, bottom, left */
   text-align: left;
   line-height: 1.25;
   backdrop-filter: blur(1px);
@@ -429,34 +456,32 @@ margin-top: 0;
 @media (max-width: 980px) {
   .aipowered-text-box {
     margin: var(--space) var(--space); /* mobile */
-    /*max-width: 70vw;*/
   }
 }
 
 .aipowered-text-box h1 {
 margin-top: 0;
 }
-/*Salesforce Rev Ops*/
+
+/*-----Salesforce Rev Ops-----*/
 .salesforce-page::before {
+  background-color: var(--bgdefault-color);
+  opacity: 0;
+  transition: opacity var(--fadein-speed) ease-in;
   content: "";
   position: fixed;
   inset: 0;
-  background:
-  /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
-  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    var(--bg-salesforce) center/cover no-repeat fixed;
-  /*filter: grayscale(100%);*/
+  background: var(--bg-image) center/cover no-repeat fixed;
   z-index: -1;
 }
 
 .salesforce-text-box {
   display: flex;
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);
   padding: var(--padding);
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   max-width: 475px;
-  /*margin: 40px 0 50px 50px; /* top, right, bottom, left */
   text-align: left;
   line-height: 1.25;
   backdrop-filter: blur(1px);
@@ -465,45 +490,42 @@ margin-top: 0;
 
 @media (max-width: 980px) {
   .salesforce-text-box {
-    margin: var(--space) var(--space); /* mobile */
-    /*max-width: 70vw;*/
+    margin: var(--space) var(--space);
   }
 }
 
 .salesforce-text-box h1 {
 margin-top: 0;
 }
-/*How It Works Page*/
+
+/*-----How It Works Page-----*/
 .howitworks-page::before {
+  background-color: var(--bgdefault-color);
+  opacity: 0;
+  transition: opacity var(--fadein-speed) ease-in;
   content: "";
   position: fixed;
   inset: 0;
   background:
-  /*linear-gradient(rgba(22, 57, 41, 0), rgba(10, 95, 56, 0.0)),
-  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),*/
-    var(--bg-howitworks) center/cover no-repeat fixed;
-  /*filter: grayscale(100%);*/
+    var(--bg-image) center/cover no-repeat fixed;
   z-index: -1;
 }
 
 .howitworks-text-box {
   display: flex;
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);
   padding: var(--padding);
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   max-width: 475px;
-  /*margin: 40px 0 50px 50px; /* top, right, bottom, left */
   text-align: left;
   line-height: 1.25;
   backdrop-filter: blur(1px);
   flex-direction: column;
 }
-
-@media (max-width: 980px) {
+@media (max-width: 700px) {
   .howitworks-text-box {
-    margin: var(--space) var(--space); /* mobile */
-    /*max-width: 70vw;*/
+    margin: var(--space) var(--space);
   }
 }
 
@@ -512,11 +534,15 @@ margin-top: 0;
 }
 /*About Me Page*/
 .about-me::before {
+  background-color: var(--bgdefault-color);
+  opacity: 0;
+  transition: opacity var(--fadein-speed) ease-in;
+  --bg-image: var(--bg-aboutme);
   content: "";
   position: fixed;
   inset: 0;
   background:
-    var(--bg-aboutme) center/cover no-repeat;
+    var(--bg-image) center/cover no-repeat;
   z-index: -1;
 }
 
@@ -535,10 +561,10 @@ margin-top: 0;
 }
 
 .about-text-box {
-  background-color: rgba(51, 51, 51, 0.85);
+  background-color: var(--textpanels-color);
   padding: 24px;
   border-radius: 8px;
-  color: white;
+  color: var(--text-color);
   text-align: left;
   backdrop-filter: blur(1px);
 }
@@ -559,7 +585,6 @@ margin-top: 0;
     outline: 4px solid rgba(51, 51, 51, 0.85);
     outline-offset: -4px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
-    /*margin: 0 auto;*/
     margin-top: auto;
     margin-bottom: auto;
     align-self: center;
