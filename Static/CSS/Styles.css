@@ -7,7 +7,8 @@ body {
 
 /*Color scheme*/
 :root {
-  --textpanels-color: rgba(51, 51, 51, 0.85);
+  /*--textpanels-color: rgba(51, 51, 51, 0.85); Original*/
+  --textpanels-color: rgba(42, 42, 42, 0.85);
   --bgdefault-color: #0d0d0d;
   --text-color:white;
 }
@@ -120,14 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 --bg-howitworks: url('../Images/ren4.jpg');
 --bg-aboutme: url('../Images/train.jpg');
 }
-/* Per-page override */
-body[data-page="bikes"] {
-  --bg-image: var(--bg-bikes);
-}
 
-body[data-page="salesforce"] {
-  --bg-image: var(--bg-salesforce);
-}
 /*----------Universal Settings----------*/
 body {
   margin: 0;
@@ -140,17 +134,19 @@ img {
 }
 
 /*Link Settings*/
+
 a {
   color:var(--text-color); 
   text-decoration: none; /*removes underline */
+  transition: text-shadow .25s ease-in;
+  transition: text-shadow .4s ease-out;
 }
-
 a:hover {
   text-shadow:
   0 0 6px rgba(255, 255, 255, .30),
   0 0 20px rgba(19, 75, 143, 1),
   0 0 35px rgba(19, 75, 143, 1),
-  0 0 50px rgba(19, 75, 143, .75);;
+  0 0 50px rgba(19, 75, 143, .75);
 }
 
 /*Opacity Switch*/
@@ -255,7 +251,10 @@ body.bg-loaded::before {
   padding: 0;
   background-color: var(--textpanels-color);
   /*background-color: rgba(51, 51, 51, 0.75);*/
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
   width: 100%;
 }
 
@@ -275,7 +274,9 @@ body.bg-loaded::before {
   padding: 14px 2.8vw;
   display: none; /*Hidden by default (desktop)*/
   background-color: var(--textpanels-color);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1),
+  0 0 6px rgba(0, 0, 0, 0.8);
 }
 /*Menu Header*/
 .nav-title {
@@ -304,12 +305,20 @@ body.bg-loaded::before {
     flex-direction: column;
     margin-left:.25vw;
     gap: 12px;
-    background-color: rgba(40, 70, 110, .95);
+    background-color: rgba(40, 70, 110, .85);
+    /*
     outline-color: rgba(51, 51, 51, 1);
+    outline-width: .25vw;
+    outline-style: solid;*/
+    outline-color: rgba(40, 70, 110, .85);
     outline-width: .25vw;
     outline-style: solid;
     max-width: 60vw;
     z-index: 10;
+    backdrop-filter: blur(2px);
+    box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
   }
   .nav-links.show {
     display: flex; /* show when toggled */
@@ -342,6 +351,7 @@ body.bg-loaded::before {
   line-height: 1.25;
   backdrop-filter: blur(1px);
   flex-direction: column;
+  box-shadow:
 }
 
 @media (max-width: 980px) {
@@ -381,14 +391,17 @@ margin-top: 0;
   display: flex;
   overflow-y: auto;
   flex-direction: column;
-  background-color: var(--textpanels-color);;
+  background-color: var(--textpanels-color);
   padding: var(--padding);
   border-radius: 8px;
   color: var(--text-color);
   max-width: 900px;
   text-align: left;
   line-height: 1.25;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
 }
 @media (max-width: 700px) {
   .bike-toc {
@@ -414,7 +427,11 @@ margin-top: 0;
   color: var(--text-color);
   height:100%;
   text-align: left;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
+
 }
 
 @media (max-width: 700px) {
@@ -449,8 +466,11 @@ body.bg-loaded::before {
   max-width: 475px;
   text-align: left;
   line-height: 1.25;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
   flex-direction: column;
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
 }
 
 @media (max-width: 980px) {
@@ -484,8 +504,11 @@ margin-top: 0;
   max-width: 475px;
   text-align: left;
   line-height: 1.25;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
   flex-direction: column;
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
 }
 
 @media (max-width: 980px) {
@@ -520,8 +543,11 @@ margin-top: 0;
   max-width: 475px;
   text-align: left;
   line-height: 1.25;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
   flex-direction: column;
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
 }
 @media (max-width: 700px) {
   .howitworks-text-box {
@@ -566,7 +592,10 @@ margin-top: 0;
   border-radius: 8px;
   color: var(--text-color);
   text-align: left;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  box-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.35),
+  0 0 12px rgba(255, 255, 255, 0.06);
 }
 @media (max-width: 700px) {
   .about-text-box {
