@@ -63,7 +63,7 @@ preload.onload = () => {
 }
 
 // ----------------------
-// TOC Smooth Scroll
+// TOC Smooth Scroll - Bikes
 // ----------------------
 document.querySelectorAll('.bike-toc a').forEach(link => {
     link.addEventListener('click', function (e) {
@@ -72,6 +72,31 @@ document.querySelectorAll('.bike-toc a').forEach(link => {
         const targetId = this.getAttribute('data-target');
         const target = document.getElementById(targetId);
         const contentBox = document.querySelector('.bike-content');
+
+        if (target && contentBox) {
+            const targetTop =
+                target.getBoundingClientRect().top -
+                contentBox.getBoundingClientRect().top +
+                contentBox.scrollTop;
+
+            contentBox.scrollTo({
+                top: targetTop - 20,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ----------------------
+// TOC Smooth Scroll - Salesforce
+// ----------------------
+document.querySelectorAll('.Salesforce-toc a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+        const contentBox = document.querySelector('.salesforce-content');
 
         if (target && contentBox) {
             const targetTop =

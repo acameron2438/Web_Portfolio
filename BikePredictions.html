@@ -28,7 +28,7 @@
             <div class="bike-layout">
                 <aside class="bike-toc">
                     <h2>Table of Contents</h2>
-                        <a data-target="exec" href="#">1. Executive Summary</a>
+                        <a data-target="exec" href="#">1. Project Summary</a>
                         <a data-target="problem" href="#">2. Business Problem</a>
                         <a data-target="datasum" href="#">3. Data Summary</a>
                         <a data-target="dataexp" href="#">4. Data Exploration</a>
@@ -42,13 +42,13 @@
                         <a data-target="tables" href="#">8. App: Tables and Charts</a>
                 </aside>
                 <main class="bike-content">
-                    <h1 id="exec">Machine Learning Predictions:<br> Bike Rentals</h2>
+                    <h1>Machine Learning Predictions:<br> Bike Rentals</h2>
                         <figure>
                         <img src="Static/Images/plot4.png" alt="title chart">
                         <figcaption><em>Rental bikes demanded (red line) versus predicted demand (green line) for both 2017 (lower line) and 2018 (upper line) aggregated by day</em>
                         </figcaption>
                         </figure>
-                    <h2 id="exec">1. Executive Summary</h2>
+                    <h2 id="exec">1. Project Summary</h2>
                         <p>In this project I use R programming to develop a predictive model to forecast total demand for rental bikes across a bike share system. This project features the publicly-available Bike Sharing Dataset from the UCI Machine Learning Repository, real data from Capital Bikeshare in Washington DC. It includes bikes demanded by hour, weather conditions and temporal variables across one and a half years. Predicting hourly demand allows the business to decide how many staff to schedule, how many bikes are needed and when to perform maintenance. While this data is aggregated across the whole bike share system, the same process can be applied to each station. The analysis begins with a detailed exploration of each variable, revealing several problems in the dataset that need to be addressed. I find demand follows a nonlinear pattern across the day, with different patterns on workdays versus non-workdays. Using these insights, I create a nonlinear time‑series regression model that uses spline‑like structures for different times of day, interactions with the workingday variable and a trend variable that captures the system's long-run growth in demand. The final model achieves strong performance, with an R‑squared of 85.7% and an RMSE of 0.566, which indicates the model successfully captures most of the variability in hourly demand. Diagnostic checks show that the model captures the key patterns in the data and is statistically valid. The resulting model provides a strong foundation for operational forecasting, resource allocation and strategic planning in a real‑world bike share system.</p>
                     <h2 id="problem">2. Business Problem</h2>
                         <p>Accurate hourly demand forecasting is the foundation of nearly every operational decision in a bike share system. Bike share systems face highly variable demand that changes by hour, day, weather and season. Operators have to schedule the right amount of staff to move bikes from station to station, decide how many bikes need to be at each station, schedule efficient routes for drivers and plan maintenance so enough equipment is available. Moving too many bikes wastes resources but not having enough bikes at each station drives away customers that rely on the bikes for transportation. Demand predictions feed into downstream rebalancing algorithms and driver‑routing systems that help minimize costs. By anticipating demand patterns several hours to days in advance, operators can deploy resources more effectively and provide reliable service.</p>
