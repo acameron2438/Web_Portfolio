@@ -29,11 +29,11 @@
                 <aside class="Salesforce-toc">
                         <h2>Table of Contents</h2>
                             <a data-target="exec" href="#">1. Project Summary</a>
-                            <a data-target="dashandreports" href="#">2. Salesforce Dashboards and Reports</a>
+                            <a data-target="dashandreports" href="#">2. Salesforce Reports and Dashboards</a>
                             <a data-target="imports" href="#" class="subsection"><em>A. Data Import</em></a>
-                            <a data-target="dashboard" href="#" class="subsection"><em>B. Dashboard</em></a>
-                            <a data-target="crma_dashboard" href="#" class="subsection"><em>C. CRMA Dashboard</em></a>
-                            <a data-target="reports" href="#" class="subsection"><em>D. Reports</em></a>
+                            <a data-target="reports" href="#" class="subsection"><em>B. Reports</em></a>
+                            <a data-target="dashboard" href="#" class="subsection"><em>C. Dashboard</em></a>
+                            <a data-target="crma_dashboard" href="#" class="subsection"><em>D. CRMA Dashboard</em></a>
                             <!--
                             <a data-target="pipeline" href="#" class="subsection"><em>i. Pipeline by Stage</em></a>
                             <a data-target="pipeline" href="#" class="subsection"><em>ii. Pipeline by Owner (Sales Rep)</em></a>
@@ -51,14 +51,11 @@
                         </figure>
                     <h2 id="exec">1. Project Summary</h2>
                         <p>This project uses synthetic CRM data that is loaded into Salesforce and then ingested into a Snowflake database using Salesforce's API and a standard extract‑load‑transform (ELT) process. This data will then be visualized in a series of dashboards on this website. The goal is to both demonstrate an end-to-end workflow and to teach the core concepts of revenue operations. This process allows a company to use external BI tools and web-based dashboards to analyze Salesforce data. It allows for data cleaning, modeling, and more sophisticated analytics than what is possible with Salesforce reporting tools. This project also includes standard Salesforce reports, a dashboard and a CRMA dashboard as a comparison and to show familiarity with Salesforce’s user interface. For this project I found a complete CRM dataset on the website Kaggle that mimics a company with a large sales team. While this project is still in progress, see below for the work that has been completed.</p>
-                    <h2 id="dashandreports">2. Salesforce Dashboards and Reports</h2>
+                    <h2 id="dashandreports">2. Salesforce Reports and Dashboards</h2>
                         <h3 id="imports">A. Data Import</h2>
                         <p>Since the free-tier of Salesforce Developer Edition provides limited memory, I first had to create a smaller sample of the data I could upload to my Salesforce environment ("org"). The rest of the data is uploaded directly to Snowflake. All Salesforce orgs use the same data model that includes what Salesforce calls standard objects. Standard objects are tables in the data model with names like Accounts, Opportunities, Leads and others.  I filtered the Accounts table and all related tables to only business accounts that are located in Pennsylvania. Since the leads in this dataset do not come with a location I picked a random sample based on the size of the sample opportunities table. Another limitation is that I was not able to upload the tasks, user or event table to Salesforce. The users table is based on actual Salesforce licenses and so it is not possible to import fake users. To simulate different users for reports I added a custom field to the opportunities standard object. The tasks and events table require an owner from the users table. This means all the tasks and events would only be associated with my user account. This means it was not productive to import these tables for this project. This data can only be analyzed using the external BI tools. The rest of the sample data I imported into Salesforce using the Java extension data loader. I mapped all the synthetic Salesforce id’s to a custom field in each table. This gives me a way to map the external datasets to the data that is already uploaded into Salesforce. Salesforce generated unique ids for each of the imported tables. This was neccessary for the times I needed to change a column value or upload data a second time with the actual Salesforce id included. I used this sample data to generate many of the standard reports used for revenue operations, shown below.</p>
-                    <h3 id="dashboard">B. Dashboard</h3>
-                        <p>Under Construction</p>    
-                    <h3 id="crma_dashboard">C. CRMA Dashboard</h3>
-                        <p>Under Construction</p>
-                    <h3 id="reports">D. Reports</h3>
+                    
+                    <h3 id="reports">B. Reports</h3>
                     <h3 id="pipeline">i. Pipeline by Stage</h4>
                         <p>Shows the dollar value and the number of open opportunities by each stage of the sales process (prospecting, qualification, proposal, negotiation). Currently the stage with the greatest number of opportunities and potential revenue is the proposal stage.</p>
                         <img src="Static/Images/PipelineByStage.jpg" alt="Description of each variable">
@@ -80,6 +77,11 @@
                     <h3 id="top">vii. Top Accounts by Open Pipeline</h4>
                         <p>Shows the number of open opportunities and total dollar amount by account. Sorted from largest open pipeline to the smallest. Shows which accounts currently have the ability to provide the most revenue and probably deserve the most attention.</p>
                         <img src="Static/Images/TopAccountsByPipeline.jpg" alt="Description of each variable">
+                    <h3 id="dashboard">C. Dashboard</h3>
+                        <p>Using the above reports, I created the following dashboard to provide quick insights. In Salesforce, each dashboard chart or table is created from an existing report. The dashboard covers the key areas: pipeline health, rep performance, funnel efficiency and deal velocity. It follows best practices for dashboard design by providing a high level view of the pipeline at the top left and focusing on details as the eyes move to the bottom right.</p>
+                        <img src="Static/Images/RevOpsDashboard.jpeg" alt="Description of each variable">    
+                    <h3 id="crma_dashboard">D. CRMA Dashboard</h3>
+                        <p>Under Construction</p>
                 </main>
             </div>
         </div>
